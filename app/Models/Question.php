@@ -6,6 +6,7 @@ use App\Enums\QuestionTypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -29,8 +30,8 @@ class Question extends Model
         return $this->belongsTo(Exam::class);
     }
 
-    public function answer(): HasOne
+    public function answers(): HasMany
     {
-        return $this->hasOne(Answer::class);
+        return $this->hasMany(Answer::class);
     }
 }
