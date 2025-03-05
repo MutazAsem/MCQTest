@@ -24,7 +24,7 @@ class AnswerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('question_id')
-                    ->relationship('question', 'id')
+                    ->relationship('question', 'question')
                     ->required(),
                 Forms\Components\Textarea::make('answer_text')
                     ->required()
@@ -39,7 +39,10 @@ class AnswerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('question.id')
+                Tables\Columns\TextColumn::make('question.question')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('answer_text')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_correct')

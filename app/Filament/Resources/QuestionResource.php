@@ -48,6 +48,8 @@ class QuestionResource extends Resource
                 Tables\Columns\TextColumn::make('exam.title')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('question')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('type')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('media_path')

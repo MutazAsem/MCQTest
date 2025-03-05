@@ -18,12 +18,12 @@ class Exam extends Model
         'duration',
     ];
 
-    public function question(): HasMany
+    public function questions(): HasMany
     {
         return $this->hasMany(Question::class);
     }
 
-    public function result(): HasOne
+    public function results(): HasOne
     {
         return $this->hasOne(Result::class);
     }
